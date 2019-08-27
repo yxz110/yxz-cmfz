@@ -11,6 +11,7 @@ public class YxzCmfzApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(YxzCmfzApplication.class, args);
+        System.out.println();
     }
 
 }
