@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.UserDao">
+    <select id="getAll" resultType="User">
+        select * from user limit #{begin},#{rows}
+    </select>
+
+    <select id="getCount" resultType="Integer">
+        select count(id) from user
+    </select>
+
+    <select id="all" resultType="User">
+        select * from user
+    </select>
+
+    <insert id="add" parameterType="User">
+        insert into user values (#{id},#{name},#{password},#{sex},#{dharma},#{provice},#{createdate},#{sign},#{imgpic},#{status})
+    </insert>
+
+    <select id="fingCity" resultType="User" parameterType="Integer">
+        select count(id) from user where datediff(NOW(),createdate)&lt;#{day}
+    </select>
+
+
+    <select id="getDayCount" resultType="int">
+        select count(id) from user where datediff(NOW(),createdate)&lt;#{day};
+    </select>
+
+
+</mapper>
